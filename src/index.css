@@ -1,13 +1,229 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+  --clr-white: #fff;
+  --text-primary: #232429;
+
+  --gray-50: #f1f3f8;
+  --gray-100: #e8e9ee;
+  --gray-200: #d3d4d9;
+  --gray-300: #bcbdc2;
+  --gray-400: #a6a7ab;
+  --gray-500: #919297;
+  --gray-600: #7a7b7f;
+  --gray-700: #65666c;
+  --gray-800: #4e4f55;
+  --gray-900: #3a3b40;
+
+  --blue-50: #faf9fe;
+  --blue-100: #efecfa;
+  --blue-200: #d6d0f3;
+  --blue-300: #beb5ec;
+  --blue-400: #a59be5;
+  --blue-500: #8780dc;
+  --blue-600: #6665d4;
+  --blue-700: #4550cc;
+  --blue-800: #043bc1;
+  --blue-900: #192f94;
+
+  --zany-pink-50: #fef9f9;
+  --zany-pink-100: #fbe9ec;
+  --zany-pink-200: #f5cad1;
+  --zany-pink-300: #eeaab5;
+  --zany-pink-400: #e88898;
+  --zany-pink-500: #d26b7c;
+  --zany-pink-600: #ad5866;
+  --zany-pink-700: #904955;
+  --zany-pink-800: #723a43;
+  --zany-pink-900: #5a2e35;
+
+  --error: #d72222;
+  --warning: #ffde00;
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+html {
+  margin: 0 auto;
+}
+body {
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.5px;
+  margin: 2rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+h1 {
+  font-size: 4rem;
+  letter-spacing: -1.5px;
+  font-weight: 300;
+  border: 3px solid var(--blue-400);
+  padding: 1rem;
+  border-radius: var(--radius);
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  letter-spacing: -0.5px;
+  font-weight: 300;
+}
+h3 {
+  font-size: 2.5rem;
+  letter-spacing: 0px;
+  font-weight: normal;
+}
+h4 {
+  font-size: 2rem;
+  letter-spacing: 0.25px;
+  font-weight: normal;
+}
+h5 {
+  font-size: 1.5rem;
+  letter-spacing: 0px;
+  font-weight: normal;
+}
+h6 {
+  font-size: 1.2rem;
+  letter-spacing: 0.15px;
+  font-weight: 500;
+}
+
+img {
+  width: 500px;
+  margin-top: 2rem;
+  border: 5px solid var(--blue-200);
+  border-radius: var(--radius);
+}
+ul, ol {
+  padding: 1rem;
+}
+a {
+  color: var(--zany-pink-500);
+  text-decoration: none;
+}
+a:active {
+  color: var(--zany-pink-600);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Source Code Pro', monospace;
+  background-color: var(--blue-100);
+  padding: 3px;
+}
+
+pre > code {
+  background-color: transparent;
+}
+
+/* Markdown */
+main {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
+}
+
+@media screen and (min-width: 992px) {
+  main {
+    width: 95vw;
+  }
+}
+
+.container {
+  padding: 4rem;
+  display: grid;
+  row-gap: 4rem;
+}
+
+#editor {
+  border-color: transparent;
+  border-radius: var(--radius);
+  font-size: 1.2rem;
+  line-height: 2;
+  box-shadow: var(--dark-shadow);
+  min-height: 30vh;
+}
+
+#editor,
+#preview {
+  padding: 1rem 2rem;
+}
+
+pre {
+  background: #222;
+  display: inline-block;
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+  color: var(--zany-pink-200);
+  margin: 1.5rem 0;
+}
+
+blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  border-left: 5px solid var(--blue-600);
+  color: var(--gray-900);
+  padding-left: 2rem;
+  line-height: 2;
+  margin: 1.5rem 0;
+}
+blockquote ::first-letter {
+  text-transform: uppercase;
+}
+
+@media screen and (min-width: 992px) {
+  .container {
+    min-height: 100vh;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 4rem;
+  }
+}
+
+/* Footer */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  align-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  background-color: var(--zany-pink-200);
+  color: var(--gray-900);
+  border-radius: var(--radius);
+}
+.signature svg {
+  width: 120px;
+  height: 100%;
+  padding-top: 7px;
+  padding-left: 5px;
+}
+
+.created {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 400px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+  }
+ 
 }
